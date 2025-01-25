@@ -5,6 +5,10 @@ import ip from "ip";
 import { HttpResponse } from "./domain/response";
 import {Code} from "./enum/code.enum";
 import {Status} from "./enum/status.enum";
+import patientRoutes from "./routes/patient.routes";
+
+
+
 export class App {
     private readonly app: Application;
     private readonly APPLICATION_RUNNING = 'application is running on: ';
@@ -28,7 +32,7 @@ export class App {
     }
 
     routes(){
-        this.app.use('/patients', (req, res)=>{});
+        this.app.use('/patients', patientRoutes);
         this.app.use('/', (req, res)=>{res.status(Code.OK).send(new HttpResponse(Code.OK, Status.OK, "Welcome to the Patients API V1.0"))});
         this.app.use('*', (req, res)=>{res.status(200).send({message: this.ROUTE_NOT_FOUND})});
     }
