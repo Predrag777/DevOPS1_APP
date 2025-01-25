@@ -3,17 +3,8 @@ import { createPatient, deletePatient, getPatient, getPatients, updatePatient } 
 
 const patientRoutes = Router();
 
-patientRoutes.route('/ss')
-    .get(getPatient);
-
-/*
 patientRoutes.route('/')
-  .get(getPatients) 
-  .post(createPatient);
+  .get(getPatients)
 
-patientRoutes.route('/:patientId')
-  .get(getPatient)
-  .put(updatePatient)
-  .delete(deletePatient);*/
 
 export default patientRoutes;
